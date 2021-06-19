@@ -1,0 +1,33 @@
+inp={ 'Fibit Plus' : 7980,
+          'IPods' : 22349,
+          'MI Band' : 999,
+          'Cult Pass' : 2799,
+          'Macbook Pro' : 229900,
+          'Digital Camera' :11101,
+          'Alexa' : 9999,
+          'Sandwich Toaster' : 2195,
+          'Microwave Oven' : 9800,
+          'scale' :4999 }
+emp_num = int(input())
+keys = list(inp.keys())
+lis = list(inp.values())
+lis1 = sorted(lis)
+key_list = []
+
+for i in lis1:
+      key_list.append(lis.index(i))
+min_ = max(lis1)
+k = -1
+for i in range(len(lis)-emp_num):
+     if (lis1[emp_num+i-1]-lis1[i]) < min_:
+         k=i
+         min_ = lis1[emp_num+i-1] -lis1[i]
+res_list = lis1[k:emp_num+k]
+
+
+print('Here the goodies that are selected for  distribution are:')
+for i in res_list:
+      pos = lis.index(i)
+      print(keys[pos],":",i)
+print("And the difference between the chosen goodie with highest price and the lowest price is",min_)
+
